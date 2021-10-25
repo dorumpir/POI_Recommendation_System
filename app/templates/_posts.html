@@ -1,0 +1,16 @@
+<ul class="posts">
+    {% for post in posts %}
+    <li class="post">
+        <div class="post-thumbnail">
+            <a href="{{ url_for('.user', username=current_user.username) }}">
+                <img class="img-rounded profile-thumbnail" src="{{ current_user.gravatar(size=40) }}">
+            </a>
+        </div>
+        <div class="post-content">
+            <div class="post-date">{{ post[-1] }}</div>
+            <div class="post-author"><a href="{{ url_for('.poi', poi_id=post[0]) }}">{{ post[0] }}</a></div>
+            <div class="post-body"> {{ "%s  @(%f, %f)"%(pois[post[0]].vcname, pois[post[0]].lati, pois[post[0]].lnti) }} </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>

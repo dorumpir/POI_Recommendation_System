@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <!-- <h1>欢迎, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}陌生人{% endif %}!</h1> -->
+	<h1> {% if current_user.is_authenticated %}{{ current_user.username }} ，该模型评估结果如下： {% else %} 请登录！{% endif %} </h1>
+</div>
+<div>
+	<p>Precision：{{prf['precision']}}</p>
+     <p>Recall：{{prf['recall']}}</p>
+     <p>F值：{{prf['F']}}</p>
+	<!--<span>{{ macros.search_bar(user_id, category, form) }}</span>  显示某种类 按钮文字 -->
+</div>
+
+{% endblock %}
